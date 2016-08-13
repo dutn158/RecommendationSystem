@@ -59,12 +59,14 @@ public class Distance {
             User u = mUsers.get(i);
             if (!u.getName().equals(user.getName())) {
                 double pearson = pearson(user, u);
+                System.out.println(u.getName() + " pearson " + pearson);
                 double distance = 0;
                 double add = 0;
                 for (int j = 0; j < u.getMovies().size(); j++) {
                     Movie m1 = u.getMovies().get(j);
                     Movie m2 = user.getMovies().get(j);
-                    add += Math.pow(Math.abs(m1.getRating() - m2.getRating()), pearson);
+                    int rating = Math.abs(m1.getRating() - m2.getRating());
+                    add += Math.pow(rating, pearson);
                 }
                 distance = Math.pow(add, 1 / pearson);
                 u.setDistance(distance);
@@ -90,7 +92,7 @@ public class Distance {
             }
             if (user.getDistance() < min) {
                 min = user.getDistance();
-                min = i;
+                index = i;
             }
         }
         

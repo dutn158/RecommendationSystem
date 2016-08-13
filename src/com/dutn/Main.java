@@ -19,7 +19,7 @@ public class Main {
         List<User> users = readData.getUsers();
         Distance distance = new Distance(users);
 //        List<User> sort = distance.computeNearestNeighbor("\"Bryan\"", users);
-        distance.recommendation("\"Matt\"");
+        distance.recommendation("\"Jeff\"");
     }
     
 }
